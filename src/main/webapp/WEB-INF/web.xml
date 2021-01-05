@@ -20,5 +20,21 @@
 	<welcome-file-list>
 		<welcome-file>/index.xhtml</welcome-file>
 	</welcome-file-list>
+	<error-page>
+		<exception-type>java.lang.Throwable</exception-type>
+		<location>/error/error.xhtml</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.xhtml</location>
+	</error-page>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/error/forbidden.xhtml</location> 
+	</error-page>
+	<error-page>
+		<error-code>401</error-code>
+		<location>/error/forbidden.xhtml</location> 
+	</error-page>
 
 </web-app>

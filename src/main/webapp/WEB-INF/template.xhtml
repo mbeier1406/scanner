@@ -1,0 +1,188 @@
+<!DOCTYPE html [
+    <!ENTITY nbsp "&#160;">
+    <!ENTITY bull "&#8226;">
+    <!ENTITY copy "&#169;">
+]>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<h:head>
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+			<meta name="description" content="JSF Testanwendung zur Anzeige von Scannern"/>
+			<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+			<link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/images/favicon.png" />
+		</f:facet>	
+		<title><h:outputText value="Scanner"></h:outputText></title>
+		<h:outputStylesheet name="css/showcase.css" />
+		<h:outputStylesheet name="css/perfect-scrollbar.css" />
+		<h:outputStylesheet name="css/sh.css" />
+		<h:outputScript name="js/perfect-scrollbar.js" />
+		<h:outputScript name="js/showcase.js" />
+		<h:outputScript name="js/jqplot.logAxisRenderer.js" />
+		<ui:insert name="head" />
+	</h:head>
+
+	<h:body>
+		<div class="PC">
+
+			<div id="MENUSIDE">
+				<div id="MENUSIDEindent">
+					<a href="#{request.contextPath}">Home</a>
+					<div class="marginBottom20">
+						<span class="gray marginRight10">Information:</span>
+						<span class="orange">info</span>
+					</div>
+					<div class="MenuSideMainLink bordersOfMenuSide">
+						<h:graphicImage name="images/zoom.svg" class="zoomIcon" />
+						<input id="menuSearch" type="text" placeholder="Suche" class="mediumFont fontSize14 mustClose searchInput" />
+					</div>
+		
+					<span id="Konfiguration" class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);">
+						<h:graphicImage name="images/mono/ajaxCore.svg" />
+						<h:graphicImage styleClass="hiddenIcons" name="images/mono/ajaxCoreBlue.svg" />
+						<span class="MainLinkText">Konfiguration</span>
+					</span>
+					<div class="SubMenuLinkContainer SingleLineMenu">
+						<a class="SubMenuLink" href="#{request.contextPath}">&bull;Scannerkonfiguration 1</a>
+						<a class="SubMenuLink" href="#{request.contextPath}">&bull;Scannerkonfiguration 2</a>
+						<a class="SubMenuLink" href="#{request.contextPath}">&bull;Scannerkonfiguration 3</a>
+					</div>
+				</div>
+			</div>
+
+			<script type="text/javascript">
+				restoreMenuState();
+			</script>
+
+			<div id="CONTENTSIDE">
+				<div id="CONTENTSIDEindent">
+	
+					<p:growl widgetVar="growl" showDetail="true" sticky="false"
+						life="6000" />
+					<p:socket onMessage="handleMessage" channel="/notify" />
+	
+	
+					<script type="text/javascript">
+						//<![CDATA[
+						function handleMessage(facesmessage) {
+							var growl = PF('growl');
+							growl.removeFirst(5);
+							growl.renderMessage(facesmessage);
+						}
+	
+						PrimeFaces.widget.Growl.prototype.removeFirst = function(
+								maxSize) {
+							var children = this.jq
+									.children('div.ui-growl-item-container');
+							if (children.length > maxSize) {
+								var remove = children.length - maxSize;
+								var index = 0;
+	
+								while ((remove--) > 0) {
+									children[index++].remove();
+								}
+							}
+						}
+						//]]>
+					</script>
+	
+					<!-- header bar start-->
+					<div class="ContentSideSections" id="PFTopLinksCover"
+						style="height: 60px;">
+						<a id="LOGOTEXTSIDE" href="#{request.contextPath}">
+							<span class="dispBlock logoDarkText fontSize30"> <h:outputText value="Titel" /></span>
+							<span id="LOGOTEXTSIDETITLE" class="dispBlock TextShadow logoBlueText fontSize30 mediumFont"><ui:insert name="title" /></span>
+						</a>
+						<span class="PFTopLinks floatRight boldFont cursorPointer"
+							id="themeSwitcher"> <h:form>
+								<h:graphicImage name="images/themeswitcher.svg" />
+								<span class="PFGrayText">PF</span>
+								<span class="PFDarkText">Themes</span>
+								<div id="GlobalThemeSwitcher" class="navOverlay">
+									<ui:repeat value="#{themeSwitcherView.themes}" var="theme">
+										<a href="#" data-theme="#{theme.name}"><span
+											class="ui-theme ui-theme-#{theme}"></span><span
+											class="ui-text">#{theme.displayName}</span></a>
+									</ui:repeat>
+								</div>
+								<p:remoteCommand name="changeTheme"
+									actionListener="#{guestPreferences.changeTheme}" />
+							</h:form>
+						</span>
+						<span class="PFTopLinks floatRight boldFont cursorPointer" id="themeSwitcher">
+							Manual
+						</span>
+					</div>
+					<!-- header bar end-->
+	
+					<ui:insert name="content">
+						<ui:insert name="subsubmenu"></ui:insert>
+	
+						<div class="ContentSideSections SiteDescription">
+							<div class="Content100 overHidden TextShadow">
+								<span class="defaultText dispTable"><ui:insert
+										name="description" /></span>
+							</div>
+						</div>
+	
+						<div class="ContentSideSections Implementation">
+							<ui:insert name="implementation" />
+						</div>
+	
+						<div id="SourceContentSide" class="ContentSideSections Source">
+							<div class="Content100 overHidden TextShadow">
+								<span class="defaultText">
+									<span class="fontSize18 logoBlueText"> <ui:insert name="source" /></span>
+								</span>
+							</div>
+						</div>
+					</ui:insert>
+	
+					<!-- footer start-->
+					<div
+						class="Footer ContentSideSections ui-grid ui-grid-responsive fontSize14 gray">
+						<div class="ui-grid-row">
+							<div class="ui-grid-col-3 ">
+								<span class="copyright">Copyright &copy; 2021</span> All rights reserved.
+							</div>
+							<div class="ui-grid-col-8 centered">Running on
+								${applicationBean.serverInfo}</div>
+							<div class="ui-grid-col-3 rightaligned">
+								<span class="version">Version 1</span>
+								Datum
+							</div>
+						</div>
+					</div>
+					<!-- footer end-->
+				</div>
+			</div>
+
+		</div>
+
+		<ui:insert name="status">
+			<p:ajaxStatus
+				style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
+				<f:facet name="start">
+					<p:graphicImage name="images/loader.gif" />
+				</f:facet>
+	
+				<f:facet name="complete">
+					<h:outputText value="" />
+				</f:facet>
+			</p:ajaxStatus>
+		</ui:insert>
+	
+		<ui:insert name="highlight">
+			<h:outputScript name="js/sh.js" target="body" />
+		</ui:insert>
+	
+		<ui:insert name="body"></ui:insert>
+
+	</h:body>
+</html>
