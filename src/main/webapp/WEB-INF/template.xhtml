@@ -151,11 +151,11 @@
 							<div class="ui-grid-col-3 ">
 								<span class="copyright">Copyright &copy; 2021</span> All rights reserved.
 							</div>
-							<div class="ui-grid-col-8 centered">Running on
-								${applicationBean.serverInfo}</div>
+							<div class="ui-grid-col-8 centered">
+								<span class="agent">Client Agent</span> #{header['User-Agent']}
+							</div>
 							<div class="ui-grid-col-3 rightaligned">
-								<span class="version">Version 1</span>
-								Datum
+								<span class="version">Client Address</span> #{header['Host']}
 							</div>
 						</div>
 					</div>

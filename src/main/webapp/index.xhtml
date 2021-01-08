@@ -1,10 +1,25 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<h:html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:t="http://java.sun.com/jsf/facelets">
-
-APÜ
-
-</html>
+	<h:head><title>Scanner</title></h:head>
+	<h:body>
+		<f:view>
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputText value="Scanner ID"/>
+					<h:inputText value="#{scanner.id}"/>
+					<h:outputText value="Scannername"/>
+					<h:inputText value="#{scanner.name}"/>
+					<h:outputText value="Scannernummer"/>
+					<h:inputText value="#{scanner.number}"/>
+					<h:outputText value="Scanner gestartet am"/>
+					<h:inputText value="#{scanner.started}"/>
+				</h:panelGrid>
+				<h:commandButton value="Abspeichern" action="#{scanner.save}"/>
+			</h:form>
+		</f:view>
+	</h:body>
+</h:html>

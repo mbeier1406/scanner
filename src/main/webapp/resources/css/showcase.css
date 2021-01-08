@@ -575,9 +575,10 @@ tbody.ui-datatable-data td a {
 #CONTENTSIDE .buttonbar button {margin-right: 2em;  }
 
 
-body .Footer  { padding: 30px ; }
+body .Footer  { padding: 30px; }
 body .Footer .copyright,
-body .Footer .version {display: block; }
+body .Footer .agent,
+body .Footer .version { display: block; margin: 2px; }
 
 
 .centered  { text-align:center; }
