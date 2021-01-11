@@ -18,12 +18,12 @@ public class LogPhaseListener implements PhaseListener {
 
 	@Override
 	public void afterPhase(PhaseEvent event) {
-		LOGGER.trace("phase={} ({})", event.getPhaseId(), event.getFacesContext().getCurrentPhaseId());
+//		LOGGER.trace("phase={} ({})", event.getPhaseId(), event.getFacesContext().getCurrentPhaseId());
 	}
 
 	@Override
 	public void beforePhase(PhaseEvent event) {
-		LOGGER.trace("phase={} ({})", event.getPhaseId(), event.getFacesContext().getCurrentPhaseId());
+//		LOGGER.trace("phase={} ({})", event.getPhaseId(), event.getFacesContext().getCurrentPhaseId());
 	}
 
 	@Override

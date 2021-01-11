@@ -1,0 +1,42 @@
+<t:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<t:define name="pagetitle" >Scanneranwendung</t:define>
+	<t:define name="title" >Scannerdefinition</t:define>
+	<t:define name="description">Scanner eingeben</t:define>
+
+	<t:define name="implementation">
+		<f:view>
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputText value="Scanner ID"/>
+					<h:inputText value="#{scanner.id}"/>
+					<h:outputText value="Scannername"/>
+					<h:inputText value="#{scanner.name}"/>
+					<h:outputText value="Scannernummer"/>
+					<h:inputText value="#{scanner.number}"/>
+					<h:outputText value="Scanner gestartet am"/>
+					<h:inputText value="#{scanner.started}"/>
+					<h:outputText value="Sprache"/>
+					<h:selectOneListbox value="#{scanner.language}">
+						<f:selectItems value="#{scanner.languages}"/>
+						<f:valueChangeListener type="com.github.mbeier1406.scanner.listener.LanguageValueChangedListener"/>
+					</h:selectOneListbox>
+					<h:outputText value="Users zur Info"/>
+					<h:selectManyListbox value="#{scanner.users}" valueChangeListener="#{scanner.usersChanged}">
+						<f:selectItem itemValue="user1@mbeier1406.org" itemLabel="User1"/>
+						<f:selectItem itemValue="user2@mbeier1406.org" itemLabel="User2"/>
+						<f:selectItem itemValue="user3@mbeier1406.org" itemLabel="User3"/>
+						<f:ajax event="valueChange" listener="#{scanner.usersChangedEvent}" render="msg"/>
+					</h:selectManyListbox>
+				</h:panelGrid>
+				<h:outputText id="msg" value="#{scanner.message}"/><br/>
+				<h:commandButton value="Abspeichern" action="#{scanner.save}" actionListener="#{scanner.saveListener}"/>
+			</h:form>
+		</f:view>
+	</t:define>
+
+</t:composition>
