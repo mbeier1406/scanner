@@ -1,13 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html>
-<h:html xmlns="http://www.w3.org/1999/xhtml"
+<t:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:t="http://java.sun.com/jsf/facelets">
-	<h:head>
-		<title>Scanner</title>
-	</h:head>
-	<h:body>
+	xmlns:t="http://java.sun.com/jsf/facelets"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<t:define name="pagetitle" >Scanneranwendung</t:define>
+	<t:define name="title" >Meine Scanner</t:define>
+	<t:define name="description">Liste der Scanner</t:define>
+
+	<t:define name="implementation">
 		<f:view>
 			<h:form>
 				<h:panelGrid columns="2">
@@ -36,5 +37,6 @@
 				<h:commandButton value="Abspeichern" action="#{scanner.save}" actionListener="#{scanner.saveListener}"/>
 			</h:form>
 		</f:view>
-	</h:body>
-</h:html>
+	</t:define>
+
+</t:composition>

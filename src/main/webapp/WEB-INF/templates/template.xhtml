@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html [
     <!ENTITY nbsp "&#160;">
     <!ENTITY bull "&#8226;">
@@ -18,8 +19,9 @@
 			<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 			<link rel="shortcut icon" type="image/png" href="#{request.contextPath}/resources/images/favicon.png" />
 		</f:facet>	
-		<title><h:outputText value="Scanner"></h:outputText></title>
-		<h:outputStylesheet name="css/showcase.css" />
+		<title><ui:insert name="pagetitle">Scannerverwaltung</ui:insert></title>
+		<ui:remove><h:outputStylesheet name="css/showcase.css" /></ui:remove>
+		<link rel="stylesheet" href="resources/css/showcase.css" type="text/css"/>
 		<h:outputStylesheet name="css/perfect-scrollbar.css" />
 		<h:outputStylesheet name="css/sh.css" />
 		<h:outputScript name="js/perfect-scrollbar.js" />
@@ -97,7 +99,9 @@
 						style="height: 60px;">
 						<a id="LOGOTEXTSIDE" href="#{request.contextPath}">
 							<span class="dispBlock logoDarkText fontSize30"> <h:outputText value="Titel" /></span>
-							<span id="LOGOTEXTSIDETITLE" class="dispBlock TextShadow logoBlueText fontSize30 mediumFont"><ui:insert name="title" /></span>
+							<span id="LOGOTEXTSIDETITLE" class="dispBlock TextShadow logoBlueText fontSize30 mediumFont">
+								<ui:insert name="title">Anwendung Scanner</ui:insert>
+							</span>
 						</a>
 						<span class="PFTopLinks floatRight boldFont cursorPointer"
 							id="themeSwitcher"> <h:form>
@@ -144,7 +148,10 @@
 					</ui:insert>
 	
 					<!-- footer -->
-					<ui:include src="./footer.xhtml"/>
+					<ui:include src="./footer.xhtml">
+						<ui:param name="userAgent" value="&gt;&gt; #{header['User-Agent']} &lt;&lt;" />
+						<ui:remove><ui:param name="clientAddress" value="&gt;&gt; #{header['Host']} &lt;&lt;" /></ui:remove>
+					</ui:include>
 				</div>
 			</div>
 
