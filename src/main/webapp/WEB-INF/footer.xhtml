@@ -1,0 +1,28 @@
+<!DOCTYPE html [
+    <!ENTITY copy "&#169;">
+]>
+<html
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://java.sun.com/jsf/facelets">
+	<h:body>
+		<t:component>
+			<!-- footer start-->
+			<div
+				class="Footer ContentSideSections ui-grid ui-grid-responsive fontSize14 gray">
+				<div class="ui-grid-row">
+					<div class="ui-grid-col-3 ">
+						<span class="copyright">Copyright &copy; 2021</span> All rights reserved.
+					</div>
+					<div class="ui-grid-col-8 centered">
+						<span class="agent">Client Agent Info</span> #{header['User-Agent']}
+					</div>
+					<div class="ui-grid-col-3 rightaligned">
+						<span class="version">Client Address</span> #{header['Host']}
+					</div>
+				</div>
+			</div>
+			<!-- footer end-->
+		</t:component>
+	</h:body>
+</html>

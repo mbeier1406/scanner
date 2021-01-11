@@ -126,13 +126,12 @@
 	
 						<div class="ContentSideSections SiteDescription">
 							<div class="Content100 overHidden TextShadow">
-								<span class="defaultText dispTable"><ui:insert
-										name="description" /></span>
+								<span class="defaultText dispTable"><ui:insert name="description" /></span>
 							</div>
 						</div>
 	
 						<div class="ContentSideSections Implementation">
-							<ui:insert name="implementation" />
+							<ui:insert name="implementation">Implementierung fehlt!</ui:insert>
 						</div>
 	
 						<div id="SourceContentSide" class="ContentSideSections Source">
@@ -144,22 +143,8 @@
 						</div>
 					</ui:insert>
 	
-					<!-- footer start-->
-					<div
-						class="Footer ContentSideSections ui-grid ui-grid-responsive fontSize14 gray">
-						<div class="ui-grid-row">
-							<div class="ui-grid-col-3 ">
-								<span class="copyright">Copyright &copy; 2021</span> All rights reserved.
-							</div>
-							<div class="ui-grid-col-8 centered">
-								<span class="agent">Client Agent</span> #{header['User-Agent']}
-							</div>
-							<div class="ui-grid-col-3 rightaligned">
-								<span class="version">Client Address</span> #{header['Host']}
-							</div>
-						</div>
-					</div>
-					<!-- footer end-->
+					<!-- footer -->
+					<ui:include src="./footer.xhtml"/>
 				</div>
 			</div>
 

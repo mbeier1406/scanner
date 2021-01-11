@@ -4,7 +4,9 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:t="http://java.sun.com/jsf/facelets">
-	<h:head><title>Scanner</title></h:head>
+	<h:head>
+		<title>Scanner</title>
+	</h:head>
 	<h:body>
 		<f:view>
 			<h:form>
@@ -17,8 +19,21 @@
 					<h:inputText value="#{scanner.number}"/>
 					<h:outputText value="Scanner gestartet am"/>
 					<h:inputText value="#{scanner.started}"/>
+					<h:outputText value="Sprache"/>
+					<h:selectOneListbox value="#{scanner.language}">
+						<f:selectItems value="#{scanner.languages}"/>
+						<f:valueChangeListener type="com.github.mbeier1406.scanner.listener.LanguageValueChangedListener"/>
+					</h:selectOneListbox>
+					<h:outputText value="Users zur Info"/>
+					<h:selectManyListbox value="#{scanner.users}" valueChangeListener="#{scanner.usersChanged}">
+						<f:selectItem itemValue="user1@mbeier1406.org" itemLabel="User1"/>
+						<f:selectItem itemValue="user2@mbeier1406.org" itemLabel="User2"/>
+						<f:selectItem itemValue="user3@mbeier1406.org" itemLabel="User3"/>
+						<f:ajax event="valueChange" listener="#{scanner.usersChangedEvent}" render="msg"/>
+					</h:selectManyListbox>
 				</h:panelGrid>
-				<h:commandButton value="Abspeichern" action="#{scanner.save}"/>
+				<h:outputText id="msg" value="#{scanner.message}"/><br/>
+				<h:commandButton value="Abspeichern" action="#{scanner.save}" actionListener="#{scanner.saveListener}"/>
 			</h:form>
 		</f:view>
 	</h:body>
