@@ -10,7 +10,7 @@
 
 	<application>
 		<resource-bundle>
-			<base-name>messages</base-name>
+			<base-name>com.github.mbeier1406.scanner.messages</base-name>
 			<var>msg</var>
 		</resource-bundle>
 		<locale-config>

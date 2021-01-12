@@ -2,24 +2,34 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:t="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
 	template="/WEB-INF/templates/template.xhtml">
 
-	<t:define name="pagetitle" >Scanneranwendung</t:define>
-	<t:define name="title" >Meine Scanner</t:define>
-	<t:define name="description">Liste der Scanner</t:define>
+	<t:define name="pagetitle" >#{msg['index.pagetitle']}</t:define>
+	<t:define name="title" >#{msg['index.title']}</t:define>
+	<t:define name="description">#{msg['index.description']}</t:define>
 
 	<t:define name="implementation">
 		<f:view>
-			<h:dataTable value="#{sampleScannerRepository.scannerList}" var="scn">
-				<h:column>
-					<f:facet name="header">Name</f:facet>
-					#{scn.name}
-				</h:column>
-				<h:column>
-					<f:facet name="header">ID</f:facet>
-					#{scn.id}
-				</h:column>
-			</h:dataTable>
+			<p:dataTable var="scn" value="#{sampleScannerRepository.scannerList}" paginator="true" rows="10"
+		                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+		                 rowsPerPageTemplate="5,10,15" id="scannerListTable">
+				<p:column headerText="Nr.">
+		            <h:outputText value="#{sampleScannerRepository.scannerList.rowIndex+1}" />
+		        </p:column>
+				<p:column headerText="Name" sortBy="#{scn.name}" filterBy="#{scn.name}">
+		            <h:outputText value="#{scn.name}" />
+		        </p:column>
+		        <p:column headerText="ID" sortBy="#{scn.id}" filterBy="#{scn.id}">
+		            <h:outputText value="#{scn.id}" />
+		        </p:column>
+		        <p:column headerText="Gestartet" sortBy="#{scn.started}" filterBy="#{scn.started}">
+		            <h:outputText value="#{scn.started}" />
+		        </p:column>
+		        <p:column headerText="Aktionen">
+		            <h:outputText value="XXX" />
+		        </p:column>
+		    </p:dataTable>
 		</f:view>
 	</t:define>
 
