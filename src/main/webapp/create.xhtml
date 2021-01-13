@@ -11,27 +11,61 @@
 	<t:define name="implementation">
 		<f:view>
 			<h:form>
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="3">
+
 					<h:outputText value="Scanner ID"/>
-					<h:inputText value="#{scanner.id}"/>
+					<h:inputText id="create_scannerid" value="#{scanner.id}"
+						required="true"
+						requiredMessage="#{msg['create.scannerid.required']}"
+						validatorMessage="#{msg['create.scannerid.validator']}">
+						<f:convertNumber
+							type="number"
+							minIntegerDigits="1"
+							maxIntegerDigits="3"
+							minFractionDigits="0"
+							maxFractionDigits="0"
+							locale="de"
+							pattern="###"/>
+					</h:inputText>
+					<h:message for="create_scannerid" style="color:red;"/>
+
 					<h:outputText value="Scannername"/>
-					<h:inputText value="#{scanner.name}"/>
+					<h:inputText id="create_scannername" value="#{scanner.name}">
+						<f:validateRequired/>
+						<f:validateBean/>  
+					</h:inputText>
+					<h:message for="create_scannername" style="color:red;"/>
+
 					<h:outputText value="Scannernummer"/>
-					<h:inputText value="#{scanner.number}"/>
+					<h:inputText id="scanner_number" value="#{scanner.number}" validator="#{scanner.validateNumber}"/>
+					<h:message for="scanner_number" style="color:red;"/>
+
 					<h:outputText value="Scanner gestartet am"/>
-					<h:inputText value="#{scanner.started}"/>
+					<h:inputText id="scanner_started" value="#{scanner.started}"/>
+					<h:message for="scanner_started" style="color:red;"/>
+
+					<h:outputText value="Scanner Preis"/>
+					<h:inputText id="scanner_price" value="#{scanner.price}">
+						<f:convertNumber type="currency" currencyCode="EUR" currencySymbol="€"/>
+					</h:inputText>
+					<h:message for="scanner_price" style="color:red;"/>
+
 					<h:outputText value="Sprache"/>
-					<h:selectOneListbox value="#{scanner.language}">
+					<h:selectOneListbox id="scanner_language" value="#{scanner.language}">
 						<f:selectItems value="#{scanner.languages}"/>
 						<f:valueChangeListener type="com.github.mbeier1406.scanner.listener.LanguageValueChangedListener"/>
 					</h:selectOneListbox>
+					<h:message for="scanner_language" style="color:red;"/>
+
 					<h:outputText value="Users zur Info"/>
-					<h:selectManyListbox value="#{scanner.users}" valueChangeListener="#{scanner.usersChanged}">
+					<h:selectManyListbox id="scanner_users" value="#{scanner.users}" valueChangeListener="#{scanner.usersChanged}">
 						<f:selectItem itemValue="user1@mbeier1406.org" itemLabel="User1"/>
 						<f:selectItem itemValue="user2@mbeier1406.org" itemLabel="User2"/>
 						<f:selectItem itemValue="user3@mbeier1406.org" itemLabel="User3"/>
 						<f:ajax event="valueChange" listener="#{scanner.usersChangedEvent}" render="msg"/>
 					</h:selectManyListbox>
+					<h:message for="scanner_users" style="color:red;"/>
+
 				</h:panelGrid>
 				<h:outputText id="msg" value="#{scanner.message}"/><br/>
 				<h:commandButton value="Abspeichern" action="#{scanner.save}" actionListener="#{scanner.saveListener}"/>
