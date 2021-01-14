@@ -1,6 +1,7 @@
 package com.github.mbeier1406.scanner;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.LinkedHashMap;
 
 import javax.faces.application.FacesMessage;
@@ -31,8 +32,9 @@ public class Scanner {
 	@NotNull(message="Scannername muss angegeben werden!")
 	@Size(min=5, max=10, message="Scannername soll 5-10 Zeichen lang sein!")
 	private String name;
+	private String product;
 	private int id;
-	private String started;
+	private Date started;
 	private String number;
 	private String[] users;
 	private String message;
@@ -60,10 +62,16 @@ public class Scanner {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getStarted() {
+	public String getProduct() {
+		return product;
+	}
+	public void setProduct(String product) {
+		this.product = product;
+	}
+	public Date getStarted() {
 		return started;
 	}
-	public void setStarted(String started) {
+	public void setStarted(Date started) {
 		this.started = started;
 	}
 	public String getNumber() {

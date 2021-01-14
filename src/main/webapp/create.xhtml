@@ -30,6 +30,12 @@
 					</h:inputText>
 					<h:message for="create_scannerid" style="color:red;"/>
 
+					<h:outputText value="#{msg['create.product.label']}"/>
+					<h:inputText id="create_scannerproduct" value="#{scanner.name}" validatorMessage="#{msg['create.product.validator']}">
+						<f:validateLength minimum="5" maximum="10"/>
+					</h:inputText>
+					<h:message for="create_scannerproduct" styleClass="defaultText"/>
+
 					<h:outputText value="Scannername"/>
 					<h:inputText id="create_scannername" value="#{scanner.name}" validatorMessage="#{msg['create.name.validator']}">
 						<f:validateRequired/>
@@ -42,7 +48,9 @@
 					<h:message for="scanner_number" style="color:red;"/>
 
 					<h:outputText value="Scanner gestartet am"/>
-					<h:inputText id="scanner_started" value="#{scanner.started}"/>
+					<h:inputText id="scanner_started" value="#{scanner.started}">
+						<f:convertDateTime pattern="dd.MM.yyyy"/>
+					</h:inputText>
 					<h:message for="scanner_started" style="color:red;"/>
 
 					<h:outputText value="Scanner Preis"/>
