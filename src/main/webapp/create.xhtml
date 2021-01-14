@@ -17,24 +17,25 @@
 					<h:inputText id="create_scannerid" value="#{scanner.id}"
 						required="true"
 						requiredMessage="#{msg['create.scannerid.required']}"
-						validatorMessage="#{msg['create.scannerid.validator']}">
+						validatorMessage="#{msg['create.scannerid.validator']}"
+						converterMessage="#{msg['create.scannerid.converter']}">
 						<f:convertNumber
 							type="number"
 							minIntegerDigits="1"
 							maxIntegerDigits="3"
 							minFractionDigits="0"
 							maxFractionDigits="0"
-							locale="de"
+							locale="#{msg['land']}"
 							pattern="###"/>
 					</h:inputText>
 					<h:message for="create_scannerid" style="color:red;"/>
 
 					<h:outputText value="Scannername"/>
-					<h:inputText id="create_scannername" value="#{scanner.name}">
+					<h:inputText id="create_scannername" value="#{scanner.name}" validatorMessage="#{msg['create.name.validator']}">
 						<f:validateRequired/>
 						<f:validateBean/>  
 					</h:inputText>
-					<h:message for="create_scannername" style="color:red;"/>
+					<h:message for="create_scannername" styleClass="defaultText"/>
 
 					<h:outputText value="Scannernummer"/>
 					<h:inputText id="scanner_number" value="#{scanner.number}" validator="#{scanner.validateNumber}"/>
@@ -46,7 +47,7 @@
 
 					<h:outputText value="Scanner Preis"/>
 					<h:inputText id="scanner_price" value="#{scanner.price}">
-						<f:convertNumber type="currency" currencyCode="EUR" currencySymbol="€"/>
+						<f:convertNumber type="currency" currencyCode="EUR" currencySymbol="€" locale="#{msg['land']}"/>
 					</h:inputText>
 					<h:message for="scanner_price" style="color:red;"/>
 

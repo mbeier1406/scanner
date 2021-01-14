@@ -29,7 +29,7 @@ public class Scanner {
 	public static final Logger LOGGER = LogManager.getLogger(Scanner.class);
 
 	@NotNull(message="Scannername muss angegeben werden!")
-	@Size(min=5, max=10, message="Scannername soll5-10 Zeichen ang sein!")
+	@Size(min=5, max=10, message="Scannername soll 5-10 Zeichen lang sein!")
 	private String name;
 	private int id;
 	private String started;
@@ -106,7 +106,7 @@ public class Scanner {
 	 */
 	public String save() {
 		// TODO: abspeichern..
-		return "index";
+		return "create";
 	}
 
 	/**
@@ -139,6 +139,7 @@ public class Scanner {
 	/**
 	 * Validiert die Scannernummer, die in {@code /create.xhtml} eingegeben wird.
 	 * Format ist <code>&lt;Major&gt;-&lt;Minor&gt;</code>.
+	 * <b>ACHTUNG</b>: verwendet nicht <i>i18n</i> durch fest codierte Fehlermeldung.
 	 * @param context Anwendungskontext
 	 * @param component die UI Komponente
 	 * @param value der eingegebenen String
