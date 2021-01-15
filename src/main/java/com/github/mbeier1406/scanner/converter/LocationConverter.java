@@ -6,6 +6,7 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 import com.github.mbeier1406.scanner.Location;
+import com.github.mbeier1406.scanner.validator.LocationValidator;
 
 /**
  * Wandelt einen String in einen Scannerstandort um und umgekehrt.
@@ -19,7 +20,13 @@ public class LocationConverter implements Converter {
 	/** Wandelt einen String in eine {@linkplain Location} um */
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
-		return new Location(value);
+		try {
+			return new Location(value);
+		}
+		catch ( Throwable t ) {
+			//throw LocationValidator.getValidatorException(value);
+			return null;
+		}
 	}
 
 	/** Wandelt  eine {@linkplain Location} int einen String um */

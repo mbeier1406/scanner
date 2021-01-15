@@ -7,8 +7,6 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-import org.apache.commons.lang3.StringUtils;
-
 import com.github.mbeier1406.scanner.Location;
 
 /**
@@ -28,12 +26,20 @@ public class LocationValidator implements Validator {
 	 */
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-		Location raum = (Location) value;
-		if ( !raum.getRaum().startsWith("Raum") || raum.getNummer() <= 0 ) {
-			FacesMessage msg = new FacesMessage("Format ist "+FORMAT+": erhalten '"+(String) value+"'");
-			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-			throw new ValidatorException(msg);
+		if ( value == null || !((Location) value).getRaum().startsWith("Raum") || ((Location) value).getNummer() <= 0 ) {
+			throw getValidatorException(value);
 		}
+	}
+
+	/**
+	 * Liefert eine passende Exception zur Anzeige in der UI
+	 * @param value das validierte Objekt
+	 * @return die Exception
+	 */
+	public static final ValidatorException getValidatorException(Object value) {
+		FacesMessage msg = new FacesMessage("Format ist "+FORMAT+": erhalten '"+value+"'");
+		msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+		return new ValidatorException(msg);
 	}
 
 }
