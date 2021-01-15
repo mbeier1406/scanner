@@ -31,7 +31,7 @@
 					<h:message for="create_scannerid" style="color:red;"/>
 
 					<h:outputText value="#{msg['create.product.label']}"/>
-					<h:inputText id="create_scannerproduct" value="#{scanner.name}" validatorMessage="#{msg['create.product.validator']}">
+					<h:inputText id="create_scannerproduct" value="#{scanner.product}" validatorMessage="#{msg['create.product.validator']}">
 						<f:validateLength minimum="5" maximum="10"/>
 					</h:inputText>
 					<h:message for="create_scannerproduct" styleClass="defaultText"/>
@@ -58,6 +58,13 @@
 						<f:convertNumber type="currency" currencyCode="EUR" currencySymbol="€" locale="#{msg['land']}"/>
 					</h:inputText>
 					<h:message for="scanner_price" style="color:red;"/>
+
+					<h:outputText value="#{msg['create.location.label']}"/>
+					<h:inputText id="scanner_location" value="#{scanner.location}">
+						<f:validator validatorId="LocationValidator"/>
+						<f:converter converterId="LocationConverter" />
+					</h:inputText>
+					<h:message for="scanner_location" style="color:red;"/>
 
 					<h:outputText value="Sprache"/>
 					<h:selectOneListbox id="scanner_language" value="#{scanner.language}">

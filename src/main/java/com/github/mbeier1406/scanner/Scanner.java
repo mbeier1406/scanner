@@ -39,6 +39,7 @@ public class Scanner {
 	private String[] users;
 	private String message;
 	private double price;
+	private Location location;
 	private String language = "de";
 	private static LinkedHashMap<String, String> languages;
 
@@ -85,6 +86,12 @@ public class Scanner {
 	}
 	public void setPrice(double price) {
 		this.price = price;
+	}
+	public Location getLocation() {
+		return location;
+	}
+	public void setLocation(Location location) {
+		this.location = location;
 	}
 	public String getMessage() {
 		return message;
