@@ -30,6 +30,9 @@
 		            <h:outputText value="XXX" />
 		        </p:column>
 		    </p:dataTable>
+		    <h:form>
+		    	<h:commandButton value="#{msg['index.scanner.create']}" action="#{sampleScannerRepository.prepareNewScanner}"/>
+		    </h:form>
 		</f:view>
 	</t:define>
 

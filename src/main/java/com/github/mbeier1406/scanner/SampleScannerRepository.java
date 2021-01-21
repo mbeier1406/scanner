@@ -62,4 +62,41 @@ public class SampleScannerRepository implements ScannerRepository<Scanner> {
 		return scannerDataModel;
 	}
 
+	/**
+	 * Wird verwendet, wenn ein neuer Scanner angelegt wird
+	 * @see #prepareNewScanner()
+	 */
+	private Scanner tmpScanner;
+
+	public Scanner getTmpScanner() {
+		return tmpScanner;
+	}
+	public void setTmpScanner(Scanner tmpScanner) {
+		this.tmpScanner = tmpScanner;
+	}
+
+	/**
+	 * Legt einen temporären {@linkplain Scanner} zur Erfassung in der
+	 * {@code /scanner/src/main/webapp/create.xhtml}-Seite an und navigiert dort hin.
+	 * @return die Seite, mit der weiter navigiert wird
+	 */
+	public String prepareNewScanner() {
+		tmpScanner = new Scanner();
+		return "create";
+	}
+
+	/**
+	 * Fügt den in der Create-Seite eingefügten Scanner in die Liste {@linkplain #SCANNER_LISTE}
+	 * ein, falls er dort noch nicht vorhanden ist.
+	 * @return die Index-Seite, mit der die Navigation fortfährt
+	 */
+	public String saveScanner() {
+		if ( !SCANNER_LISTE.contains(tmpScanner) ) {
+			SCANNER_LISTE.add(tmpScanner);
+			scannerDataModel = null;
+		}
+		tmpScanner = null;
+		return "index";
+	}
+
 }

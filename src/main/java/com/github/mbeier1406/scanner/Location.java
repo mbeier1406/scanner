@@ -14,6 +14,8 @@ public class Location {
 	/** Raumnummer */
 	private int nummer;
 
+	public Location() {}
+
 	/**
 	 * Erstellt das Objekt aus einem String im Format {@linkplain LocationValidator#FORMAT}
 	 * @param raum die Raumbezeichnung
