@@ -27,7 +27,9 @@
 		            <h:outputText value="#{scn.started}" />
 		        </p:column>
 		        <p:column headerText="Aktionen">
-		            <h:outputText value="XXX" />
+					<h:form>
+						<h:commandButton value="Anpassen" action="#{sampleScannerRepository.prepareUpdateScanner(scn)}"/>
+					</h:form>
 		        </p:column>
 		    </p:dataTable>
 		    <h:form>

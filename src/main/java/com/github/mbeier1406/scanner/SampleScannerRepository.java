@@ -78,6 +78,7 @@ public class SampleScannerRepository implements ScannerRepository<Scanner> {
 	/**
 	 * Legt einen temporären {@linkplain Scanner} zur Erfassung in der
 	 * {@code /scanner/src/main/webapp/create.xhtml}-Seite an und navigiert dort hin.
+	 * Verwendet die regelbasierte Navigationrule nach {@code /create.xhtml} in <code>faces-config.xml</code>.
 	 * @return die Seite, mit der weiter navigiert wird
 	 */
 	public String prepareNewScanner() {
@@ -86,8 +87,21 @@ public class SampleScannerRepository implements ScannerRepository<Scanner> {
 	}
 
 	/**
+	 * Verwendet den temporären {@linkplain #tmpScanner} zum Editieren in der
+	 * {@code /scanner/src/main/webapp/create.xhtml}-Seite und navigiert dort hin.
+	 * Verwendet die regelbasierte Navigationrule nach {@code /create.xhtml} in <code>faces-config.xml</code>.
+	 * @param scanner Der Scanner, der aktualisiert werden soll
+	 * @return die Seite, mit der weiter navigiert wird
+	 */
+	public String prepareUpdateScanner(Scanner scanner) {
+		tmpScanner = scanner;
+		return "update";
+	}
+
+	/**
 	 * Fügt den in der Create-Seite eingefügten Scanner in die Liste {@linkplain #SCANNER_LISTE}
 	 * ein, falls er dort noch nicht vorhanden ist.
+	 * Implizite Navigation über die Rückgabe der neuen Seite nach {@code /index.xhtml}.
 	 * @return die Index-Seite, mit der die Navigation fortfährt
 	 */
 	public String saveScanner() {
