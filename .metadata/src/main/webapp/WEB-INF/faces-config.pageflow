@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16100488013770" configfile="/scanner/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="index.html" x="48" y="144" id="pf16124696941083" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf161247105535210 pf161247105535211" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="create.xhtml" id="pf16124709351979" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf161247105535210 pf161247105535211" path="/create.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="index.html" x="48" y="144" id="pf16124696941083" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" outlinks="pf161247105535210 pf161247105535211 pf16129016644823" inlinks="pf16129016644823" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="create.xhtml" id="pf16124709351979" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf161247105535210 pf161247105535211" path="/create.xhtml"/>
   <links id="pf161247105535210" target="pf16124709351979" source="pf16124696941083" outcome="create"/>
   <links id="pf161247105535211" target="pf16124709351979" source="pf16124696941083" outcome="update"/>
+  <links id="pf16129016644823" target="pf16124696941083" source="pf16124696941083" outcome="delete"/>
 </pageflow:Pageflow>

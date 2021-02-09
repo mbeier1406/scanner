@@ -17,8 +17,8 @@ import javax.faces.model.ListDataModel;
 @SessionScoped
 public class SampleScannerRepository implements ScannerRepository<Scanner> {
 
-	private static final ArrayList<Scanner> SCANNER_LISTE;
-	private DataModel<Scanner> scannerDataModel;
+	private static final transient ArrayList<Scanner> SCANNER_LISTE;
+	private transient DataModel<Scanner> scannerDataModel;
 
 	static {
 		SCANNER_LISTE = new ArrayList<>();
@@ -111,6 +111,18 @@ public class SampleScannerRepository implements ScannerRepository<Scanner> {
 		}
 		tmpScanner = null;
 		return "index";
+	}
+
+	/**
+	 * Löscht einen Scanner aus der Liste in {@linkplain #SCANNER_LISTE}.
+	 * Verwendet die regelbasierte Navigationrule nach {@code /index.xhtml} in <code>faces-config.xml</code>.
+	 * @param scanner der zu löschende Scanner
+	 * @return die Index-Seite, mit der die Navigation fortfährt
+	 */
+	public String deleteScanner(Scanner scanner) {
+		SCANNER_LISTE.remove(scanner);
+		scannerDataModel = new ListDataModel<Scanner>(SCANNER_LISTE);
+		return "delete";
 	}
 
 }

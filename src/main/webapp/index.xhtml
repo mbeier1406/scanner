@@ -29,6 +29,7 @@
 		        <p:column headerText="Aktionen">
 					<h:form>
 						<h:commandButton value="Anpassen" action="#{sampleScannerRepository.prepareUpdateScanner(scn)}"/>
+						<h:commandButton value="Löschen" action="#{sampleScannerRepository.deleteScanner(scn)}"/>
 					</h:form>
 		        </p:column>
 		    </p:dataTable>
