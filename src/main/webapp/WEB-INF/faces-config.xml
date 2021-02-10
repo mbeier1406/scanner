@@ -8,6 +8,10 @@
 	    <phase-listener>com.github.mbeier1406.scanner.listener.LogPhaseListener</phase-listener>
 	</lifecycle>
 
+	<factory>
+		<exception-handler-factory>com.github.mbeier1406.scanner.handler.ExceptionHandlerFactory</exception-handler-factory>
+	</factory>
+
 	<application>
 		<resource-bundle>
 			<base-name>com.github.mbeier1406.scanner.messages</base-name>

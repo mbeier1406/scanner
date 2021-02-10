@@ -14,15 +14,20 @@
 	</ui:define>
     
     <ui:define name="title">
-        <h1>Interner Fehler</h1>
+        <h1>Exception</h1>
     </ui:define>
 
     <ui:define name="description">
-        <h3>Es ist ein unerwarteter Fehler aufgetreten.</h3>
+        <h3>Es ist eine Exception aufgetreten.</h3>
     </ui:define>
 
     <ui:define name="implementation">
-        <h3>APÜ!!!</h3>
+	    <h3>Fehler</h3>
+	    #{requestScope['fehler']}
+	    <h3>Informationen</h3>
+	    <ui:repeat value="#{requestScope['stack']}" var="item">
+	        #{item.className} - #{item.methodName} - #{item.fileName} (#{item.lineNumber})<br/>
+	    </ui:repeat>
     </ui:define>
 
 </ui:composition>

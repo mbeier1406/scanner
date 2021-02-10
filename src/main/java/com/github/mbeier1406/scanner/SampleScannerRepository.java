@@ -125,4 +125,11 @@ public class SampleScannerRepository implements ScannerRepository<Scanner> {
 		return "delete";
 	}
 
+	/**
+	 * Test für die Exception-Seite
+	 */
+	public String createException() {
+		throw new RuntimeException("Teste Exception!");
+	}
+
 }
