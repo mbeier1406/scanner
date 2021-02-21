@@ -41,6 +41,14 @@ $ /opt/sqldeveloper/sqldeveloper/bin/sqldeveloper
 ```
 ![sqldeveloper](doc/images/SQLDeveloper.jpg "SQL Developer")
 
+Login erfolgt dann mit dem Systembenutzer:
+
+* Username: `sys`
+* Kenwort: `xxx`
+* Hostname: `localhost`
+* Port: `51521` (siehe Installtion oben)
+* SID: `xe` (Standardname Oracle Express)
+
 Anlegen eines Benutzers für die Anwendung:
 
 ```sql
@@ -50,3 +58,5 @@ alter session set "_ORACLE_SCRIPT"=true;
 create user mdd identified by xxx default tablespace mddsbts temporary tablespace mddsbtmpts;
 grant all privileges to mdd;
 ```
+
+
