@@ -1,0 +1,22 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>com.github.mbeier1406</groupId>
+		<artifactId>scanner</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>scanner-domain</artifactId>
+	<name>${project.groupId}:${project.artifactId}</name>
+	<packaging>jar</packaging>
+	<description>JPA Entities für die Scannerverwaltung</description>
+	<url>https://github.com/mbeier1406</url>
+
+	<dependencies>
+	</dependencies>
+
+</project>
