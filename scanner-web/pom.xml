@@ -1,0 +1,168 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+        <parent>
+                <groupId>com.github.mbeier1406</groupId>
+                <artifactId>scanner</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+                <relativePath>../pom.xml</relativePath>
+        </parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.github.mbeier1406</groupId>
+	<artifactId>scanner-web</artifactId>
+	<name>${project.groupId}:${project.artifactId}</name>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<description>GUI für die Scannerverwaltung</description>
+	<url>https://github.com/mbeier1406</url>
+
+	<contributors>
+		<contributor>
+			<name>Martin Beier</name>
+			<email>mbeier@gmx.de</email>
+			<organization>Golkonda</organization>
+			<organizationUrl>https://github.com/mbeier1406</organizationUrl>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</contributor>
+	</contributors>
+
+	<licenses>
+		<license>
+			<name>The Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+		</license>
+	</licenses>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>14</source>
+					<target>14</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>scanner</finalName>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${org.junit.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>org.hamcrest</groupId>
+			    <artifactId>hamcrest-all</artifactId>
+			    <version>${org.hamcrest.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-api</artifactId>
+				<version>${org.apache.logging.log4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-core</artifactId>
+				<version>${org.apache.logging.log4j.version}</version>
+			</dependency>
+	        <dependency>
+	            <groupId>org.jboss.arquillian</groupId>
+	            <artifactId>arquillian-bom</artifactId>
+	            <version>1.6.0.Final</version>
+	            <scope>import</scope>
+	            <type>pom</type>
+	        </dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+        <dependency>
+              <groupId>javax</groupId>
+              <artifactId>javaee-api</artifactId>
+              <version>7.0</version>
+              <scope>provided</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>SMALL</id>
+			<dependencies>
+				<dependency>
+					<groupId>javax.faces</groupId>
+					<artifactId>javax.faces-api</artifactId>
+					<version>2.2</version>
+				</dependency>
+				<dependency>
+					<groupId>com.sun.faces</groupId>
+					<artifactId>jsf-impl</artifactId>
+					<version>2.2.14</version>
+				</dependency>
+				<dependency>
+					<groupId>javax.el</groupId>
+					<artifactId>javax.el-api</artifactId>
+					<version>3.0.0</version>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>javax.servlet-api</artifactId>
+					<version>3.1.0</version>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>javax.servlet.jsp</groupId>
+					<artifactId>javax.servlet.jsp-api</artifactId>
+					<version>2.3.1</version>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>javax.servlet.jsp.jstl</groupId>
+					<artifactId>jstl-api</artifactId>
+					<version>1.2</version>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+
+</project>

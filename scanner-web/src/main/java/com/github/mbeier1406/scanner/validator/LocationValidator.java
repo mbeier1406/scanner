@@ -26,7 +26,12 @@ public class LocationValidator implements Validator {
 	 */
 	@Override
 	public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-		if ( value == null || !((Location) value).getRaum().startsWith("Raum") || ((Location) value).getNummer() <= 0 ) {
+		try {
+			Location location = new Location((String) value);
+			if ( value == null || !location.getRaum().startsWith("Raum") || location.getNummer() <= 0 )
+				throw getValidatorException(value);
+		}
+		catch ( Throwable t ) {
 			throw getValidatorException(value);
 		}
 	}
