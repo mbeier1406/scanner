@@ -1,4 +1,4 @@
-package com.github.mbeier1406.scanner.handler;
+package com.github.mbeier1406.scanner.web.handler;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -14,7 +14,7 @@ import javax.faces.event.ExceptionQueuedEventContext;
  * Der ExceptionHandler liest die aufgetretene Exception in die externe Request-Map ein
  * und navigiert zur Seite {@code /error/exception.xhtml}, wo die Exception angezeigt wird.
  * @author mbeier
- * @see com.github.mbeier1406.scanner.handler.ExceptionHandlerFactory
+ * @see com.github.mbeier1406.scanner.web.handler.ExceptionHandlerFactory
  */
 public class ExceptionHandler extends ExceptionHandlerWrapper {
 

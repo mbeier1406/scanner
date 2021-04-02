@@ -1,10 +1,12 @@
-package com.github.mbeier1406.scanner.validator;
+package com.github.mbeier1406.scanner.web.validator;
 
 import javax.faces.validator.ValidatorException;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
+
+import com.github.mbeier1406.scanner.web.validator.LocationValidator;
 
 /**
  * Tests für die Klasse {@linkplain LocationValidator}.

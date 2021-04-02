@@ -1,12 +1,12 @@
-package com.github.mbeier1406.scanner.converter;
+package com.github.mbeier1406.scanner.web.converter;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import com.github.mbeier1406.scanner.Location;
-import com.github.mbeier1406.scanner.validator.LocationValidator;
+import com.github.mbeier1406.scanner.web.Location;
+import com.github.mbeier1406.scanner.web.validator.LocationValidator;
 
 /**
  * Wandelt einen String in einen Scannerstandort um und umgekehrt.

@@ -69,7 +69,7 @@
 					<h:outputText value="Sprache"/>
 					<h:selectOneListbox id="scanner_language" value="#{sampleScannerRepository.tmpScanner.language}">
 						<f:selectItems value="#{sampleScannerRepository.tmpScanner.languages}"/>
-						<f:valueChangeListener type="com.github.mbeier1406.scanner.listener.LanguageValueChangedListener"/>
+						<f:valueChangeListener type="com.github.mbeier1406.scanner.web.listener.LanguageValueChangedListener"/>
 					</h:selectOneListbox>
 					<h:message for="scanner_language" style="color:red;"/>
 

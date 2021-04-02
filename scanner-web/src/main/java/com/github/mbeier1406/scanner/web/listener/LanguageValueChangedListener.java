@@ -1,4 +1,4 @@
-package com.github.mbeier1406.scanner.listener;
+package com.github.mbeier1406.scanner.web.listener;
 
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ValueChangeEvent;

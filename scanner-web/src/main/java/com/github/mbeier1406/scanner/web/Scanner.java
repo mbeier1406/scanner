@@ -1,4 +1,4 @@
-package com.github.mbeier1406.scanner;
+package com.github.mbeier1406.scanner.web;
 
 import java.util.Arrays;
 import java.util.Date;

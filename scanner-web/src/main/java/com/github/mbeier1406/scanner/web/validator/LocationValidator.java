@@ -1,4 +1,4 @@
-package com.github.mbeier1406.scanner.validator;
+package com.github.mbeier1406.scanner.web.validator;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -7,7 +7,7 @@ import javax.faces.validator.FacesValidator;
 import javax.faces.validator.Validator;
 import javax.faces.validator.ValidatorException;
 
-import com.github.mbeier1406.scanner.Location;
+import com.github.mbeier1406.scanner.web.Location;
 
 /**
  * Einfacher Validator für einen Scannerstandort.

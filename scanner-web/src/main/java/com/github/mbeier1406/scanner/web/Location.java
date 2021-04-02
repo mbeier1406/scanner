@@ -1,6 +1,6 @@
-package com.github.mbeier1406.scanner;
+package com.github.mbeier1406.scanner.web;
 
-import com.github.mbeier1406.scanner.validator.LocationValidator;
+import com.github.mbeier1406.scanner.web.validator.LocationValidator;
 
 /**
  * Repräsentiert den Standort eines {@linkplain Scanner}s.

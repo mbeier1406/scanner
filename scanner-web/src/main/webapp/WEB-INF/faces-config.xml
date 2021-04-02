@@ -5,16 +5,16 @@
 	version="2.2">
 
 	<lifecycle>
-	    <phase-listener>com.github.mbeier1406.scanner.listener.LogPhaseListener</phase-listener>
+	    <phase-listener>com.github.mbeier1406.scanner.web.listener.LogPhaseListener</phase-listener>
 	</lifecycle>
 
 	<factory>
-		<exception-handler-factory>com.github.mbeier1406.scanner.handler.ExceptionHandlerFactory</exception-handler-factory>
+		<exception-handler-factory>com.github.mbeier1406.scanner.web.handler.ExceptionHandlerFactory</exception-handler-factory>
 	</factory>
 
 	<application>
 		<resource-bundle>
-			<base-name>com.github.mbeier1406.scanner.messages</base-name>
+			<base-name>com.github.mbeier1406.scanner.web.messages</base-name>
 			<var>msg</var>
 		</resource-bundle>
 		<locale-config>
