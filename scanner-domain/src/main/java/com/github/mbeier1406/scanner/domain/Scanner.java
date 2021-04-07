@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * 
+ * Einfache DTO-Klasse für einen Scanner
  * @author mbeier
  */
 @Entity
@@ -19,6 +19,14 @@ public class Scanner {
 	private String name;
 	private String product;
 	private int scannerId;
+
+	public Scanner() {}
+	public Scanner(String name, String product, int scannerId) {
+		super();
+		this.name = name;
+		this.product = product;
+		this.scannerId = scannerId;
+	}
 
 	public long getId() {
 		return id;
