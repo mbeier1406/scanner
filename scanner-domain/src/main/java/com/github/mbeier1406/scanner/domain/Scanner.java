@@ -22,7 +22,11 @@ public class Scanner {
 
 	public Scanner() {}
 	public Scanner(String name, String product, int scannerId) {
+		this(0, name, product, scannerId);
+	}
+	public Scanner(int id, String name, String product, int scannerId) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.product = product;
 		this.scannerId = scannerId;

@@ -16,6 +16,12 @@
 	<description>JPA Entities für die Scannerverwaltung</description>
 	<url>https://github.com/mbeier1406/scanner</url>
 
+    <properties>
+        <eclipselink.version>2.7.0</eclipselink.version>
+        <hibernate.version>5.0.5.Final</hibernate.version>
+        <oracle.jdbc.version>21.1.0.0</oracle.jdbc.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>javax.persistence</groupId>
@@ -23,9 +29,9 @@
 			<version>2.2</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.1.4.Final</version>
+		  <groupId>org.eclipse.persistence</groupId>
+		  <artifactId>eclipselink</artifactId>
+		  <version>${eclipselink.version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.oracle.database.jdbc</groupId>
@@ -33,5 +39,31 @@
 		    <version>21.1.0.0</version>
 		</dependency>
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>TEST</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<org.apache.derby.version>10.8.2.2</org.apache.derby.version>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.apache.derby</groupId>
+					<artifactId>derby</artifactId>
+					<version>${org.apache.derby.version}</version>
+					<scope>test</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.apache.derby</groupId>
+					<artifactId>derbyclient</artifactId>
+					<version>${org.apache.derby.version}</version>
+					<scope>test</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 
 </project>

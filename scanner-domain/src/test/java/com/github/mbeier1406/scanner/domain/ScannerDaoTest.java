@@ -33,8 +33,7 @@ public class ScannerDaoTest {
 			.mapToObj(scannerDaoMock::get)
 			.filter(not(o -> o.equals(Optional.empty())))
 			.peek(LOGGER::info)
-			.count(), equalTo(4L))
-			;
+			.count(), equalTo(4L));
 	}
 
 }
