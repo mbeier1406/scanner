@@ -18,6 +18,11 @@ public class ScannerDaoMock implements ScannerDao<Scanner> {
 		put(4L, new Scanner("Scanner4", "Typ4", 444));
 	}};
 
+	/** Liefert sie "Größe" der "Datenbank" */
+	public int anzahlObjekte() {
+		return this.scannerListe.size();
+	}
+
 	/** {@inheritDoc} */
 	@Override
 	public Optional<Scanner> get(long id) {
@@ -28,6 +33,12 @@ public class ScannerDaoMock implements ScannerDao<Scanner> {
 	@Override
 	public void save(Scanner t) {
 		this.scannerListe.put(t.getId(), t);
+	}
+
+	/** {@inheritDoc} */
+	@Override
+	public void delete(Scanner t) throws Exception {
+		this.scannerListe.remove(this.scannerListe.keySet().stream().filter(key -> t.equals(this.scannerListe.get(key))).findFirst().get());
 	}
 
 }
