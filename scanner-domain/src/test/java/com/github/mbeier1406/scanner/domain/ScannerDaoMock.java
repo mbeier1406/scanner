@@ -11,7 +11,7 @@ import java.util.Optional;
 public class ScannerDaoMock implements ScannerDao<Scanner> {
 
 	@SuppressWarnings("serial")
-	private Map<Long, Scanner> scannerListe = new HashMap<>() {{
+	private Map<Long, Scanner> scannerListe = new HashMap<Long, Scanner>() {{
 		put(1L, new Scanner("Scanner1", "Typ1", 111));
 		put(2L, new Scanner("Scanner2", "Typ2", 222));
 		put(3L, new Scanner("Scanner3", "Typ3", 333));

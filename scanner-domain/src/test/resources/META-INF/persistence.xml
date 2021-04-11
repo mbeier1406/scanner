@@ -5,9 +5,10 @@
                                  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
 
+	<!-- Definition einer lokalen Derby-Datenbank -->
     <persistence-unit name="scanner-local-test" transaction-type="RESOURCE_LOCAL">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-<!--         <exclude-unlisted-classes>false</exclude-unlisted-classes> -->
+		<!-- <exclude-unlisted-classes>false</exclude-unlisted-classes> -->
         <class>com.github.mbeier1406.scanner.domain.Scanner</class>
         <properties>
 			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
@@ -20,6 +21,23 @@
             <property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:scanner;create=true" />
             <property name="javax.persistence.jdbc.user" value="" />
             <property name="javax.persistence.jdbc.password" value="" />
+        </properties>
+    </persistence-unit>
+
+	<!-- Definition einer externen Oracle-Datenbank -->
+    <persistence-unit name="scanner-oracle-test" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<!-- <exclude-unlisted-classes>false</exclude-unlisted-classes> -->
+        <class>com.github.mbeier1406.scanner.domain.Scanner</class>
+        <properties>
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
+			<property name="eclipselink.logging.level" value="all" />
+			<property name="eclipselink.logging.level.sql" value="all" />
+			<property name="eclipselink.logging.parameters" value="true" />
+            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:51521:xe"/>
+            <property name="javax.persistence.jdbc.user" value="mdd"/>
+            <property name="javax.persistence.jdbc.password" value="mdd"/>
         </properties>
     </persistence-unit>
 

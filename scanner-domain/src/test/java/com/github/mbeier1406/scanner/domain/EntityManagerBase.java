@@ -10,11 +10,12 @@ import javax.persistence.Persistence;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 
 /**
  * JPA EntityManager-Klasse für die JUnit-Tests.
- * Verwendet je nach Paramter im  eine lokale In-Memory-Datenbank.
+ * Verwendet standardmäßig die lokale In-Memory-Datenbank, kann aber
+ * per {@linkplain #init()} über den Parameter mit dem entsprechenden
+ * Persistence-unit-Name auch angepasst werden.
  * @author mbeier
  */
 public abstract class EntityManagerBase {
@@ -25,9 +26,14 @@ public abstract class EntityManagerBase {
 	protected static EntityManager em;
 
 	/* persistence-unit name="..." */
-	protected static String persistenceUnit = "scanner-local-test";
+	/** Name der Persistenzdefinition aus der {@code persistence.xml}  */
+	protected static String persistenceUnit = "scanner-oracle-test";
 
-	@BeforeClass
+	/**
+	 * Initialisiert den EntityManager für die Junit-Tests.
+	 * @throws FileNotFoundException
+	 * @throws SQLException
+	 */
 	public static void init() throws FileNotFoundException, SQLException {
 		LOGGER.info("persistenceUnit="+persistenceUnit);
 		emf = Persistence.createEntityManagerFactory(persistenceUnit);
@@ -35,6 +41,7 @@ public abstract class EntityManagerBase {
 		em.getProperties().entrySet().stream().forEach(e -> LOGGER.info("em: "+e.getKey()+"="+e.getValue()));
 	}
 
+	/** Schließt den EntityManager und die Faxtory. */
 	@AfterClass
 	public static void closeDatabase() {
 		em.clear();
