@@ -27,7 +27,7 @@ public abstract class EntityManagerBase {
 
 	/* persistence-unit name="..." */
 	/** Name der Persistenzdefinition aus der {@code persistence.xml}  */
-	protected static String persistenceUnit = "scanner-oracle-test";
+	protected static String persistenceUnit;
 
 	/**
 	 * Initialisiert den EntityManager für die Junit-Tests.
@@ -48,4 +48,14 @@ public abstract class EntityManagerBase {
 		em.close();
 		emf.close();
 	}
+
+	/**
+	 * Liefert den Namen der konfigurierten Persistenzunit.
+	 * Der Namen soll aus der {@code persistence.xml} gewählt werden.
+	 * @return den Namen
+	 */
+	public String getPersistenceUnit() {
+		return persistenceUnit;
+	}
+
 }

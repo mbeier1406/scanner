@@ -4,7 +4,6 @@ import java.util.Optional;
 import java.util.function.Consumer;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import org.apache.logging.log4j.LogManager;
@@ -37,6 +36,7 @@ public class ScannerDaoJpa implements ScannerDao<Scanner> {
 	/** {@inheritDoc} */
 	@Override
 	public Optional<Scanner> get(long id) {
+		LOGGER.trace("id={}", id);
 		return Optional.ofNullable(em.find(Scanner.class, id));
 	}
 
@@ -44,6 +44,7 @@ public class ScannerDaoJpa implements ScannerDao<Scanner> {
 	@Override
 	public void save(Scanner scanner) {
 		try {
+			LOGGER.trace("scanner={}", scanner);
 			transaction(entityManager -> entityManager.persist(scanner));
 		}
 		catch ( Exception e ) {
@@ -56,6 +57,7 @@ public class ScannerDaoJpa implements ScannerDao<Scanner> {
 	@Override
 	public void delete(Scanner scanner) throws Exception {
 		try {
+			LOGGER.trace("scanner={}", scanner);
 			transaction(entityManager -> entityManager.remove(scanner));
 		}
 		catch ( Exception e ) {
