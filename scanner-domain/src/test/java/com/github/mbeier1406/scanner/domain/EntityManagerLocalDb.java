@@ -16,10 +16,14 @@ public abstract class EntityManagerLocalDb extends EntityManagerBase {
 
 	public static final Logger LOGGER = LogManager.getLogger(EntityManagerLocalDb.class);
 
+	/** Der Name der Persistenzeinheit aus {@code persistence.xml} ist {@value} */
+	public static final String LOCAL_PERSISTENCE_UNIT = "scanner-local-test";
+
+	static { persistenceUnit = LOCAL_PERSISTENCE_UNIT; };
+
 	/** EntityManager {@linkplain EntityManagerBase#em} initialisieren */
 	@BeforeClass
 	public static void initDb() throws FileNotFoundException, SQLException {
-		persistenceUnit = "scanner-local-test";
 		init();
 	}
 
