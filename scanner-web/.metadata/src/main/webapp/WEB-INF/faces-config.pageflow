@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16173515300300" configfile="/scanner-web/src/main/webapp/WEB-INF/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="178" id="pf16173515478321" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" outlinks="pf16173515478332 pf16173515478333 pf16173515478334" inlinks="pf16173515478334" path="/index.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="create.xhtml" x="338" y="178" id="pf16173515478335" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf16173515478332 pf16173515478333" path="/create.xhtml"/>
-  <links id="pf16173515478332" target="pf16173515478335" source="pf16173515478321" outcome="create"/>
-  <links id="pf16173515478333" target="pf16173515478335" source="pf16173515478321" outcome="update"/>
-  <links id="pf16173515478334" target="pf16173515478321" source="pf16173515478321" outcome="delete">
-    <bendPoints d1Height="-36" d2Height="-36"/>
-    <bendPoints d1Width="-64" d1Height="-36" d2Width="-64" d2Height="-36"/>
-    <bendPoints d1Width="-64" d2Width="-64"/>
-  </links>
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" x="122" y="178" id="pf16173515478321" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="create.xhtml" x="338" y="178" id="pf16173515478335" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" path="/create.xhtml"/>
 </pageflow:Pageflow>

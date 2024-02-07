@@ -2,12 +2,17 @@ package com.github.mbeier1406.scanner.beans;
 
 import java.util.Arrays;
 
-import jakarta.enterprise.context.RequestScoped;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Named;
 
-@RequestScoped
-@Named("Scanner")
+@ViewScoped()
+@Named
 public class Scanner {
+
+	public static final Logger LOGGER = LogManager.getLogger(Scanner.class);
 
 	private String name, location, activeSince, id;
 	private String[] emailAdress;
@@ -18,6 +23,11 @@ public class Scanner {
 		this.activeSince = activeSince;
 		this.id = id;
 		this.emailAdress = emailAdress;
+	}
+	public String save() {
+		// TODO: Implementierung fehlt
+		LOGGER.info("scanner={}", toString());
+		return "index";
 	}
 	public String getName() {
 		return name;

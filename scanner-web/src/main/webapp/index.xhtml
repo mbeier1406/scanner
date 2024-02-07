@@ -1,15 +1,26 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="jakarta.faces.html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:h="jakarta.faces.html" xmlns:f="jakarta.faces.core">
 	<h:head>
-		<title>Scannerverwaltung</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Scannerapplication</title>
 	</h:head>
 	<h:body>
-		<h:form>
-			<h2>Scannerliste</h2>
-	            xyz
+		<f:view>
+			<h:form>
+				<h2>Scannerapplication</h2>
+				<h:panelGrid columns="2">
+					<h:outputText value="Name" />
+					<h:inputText value="#{scanner.name}" />
+					<h:outputText value="Location" />
+					<h:inputText value="#{scanner.location}" />
+					<h:outputText value="Active Since" />
+					<h:inputText value="#{scanner.activeSince}" />
+					<h:outputText value="ID" />
+					<h:inputText value="#{scanner.id}" />
+				</h:panelGrid>
+	            <h:commandButton value="Save" action="#{scanner.save}" />
 			</h:form>
+		</f:view>
 	</h:body>
 </html>
