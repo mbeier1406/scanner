@@ -5,10 +5,10 @@ import java.util.Arrays;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import jakarta.faces.view.ViewScoped;
+import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
 
-@ViewScoped()
+@RequestScoped
 @Named
 public class Scanner {
 
