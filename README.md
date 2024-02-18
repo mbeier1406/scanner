@@ -44,7 +44,7 @@ Zugriff auf die Datenbank erfolgt über [SQL Developer](https://www.oracle.com/t
 $ zypper install /home/mbeier/Downloads/sqldeveloper-20.4.0.379.2205-20.4.0-379.2205.noarch.rpm
 $ /opt/sqldeveloper/sqldeveloper/bin/sqldeveloper
 ```
-![sqldeveloper](doc/images/SQLDeveloper.jpg "SQL Developer")
+![sqldeveloper](doc/SQLDeveloper.jpg "SQL Developer")
 
 Login erfolgt dann mit dem Systembenutzer:
 
