@@ -2,30 +2,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="jakarta.faces.core"
       xmlns:h="jakarta.faces.html">
     <h:head>
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Scanner Erfassungsmaske</title>
     </h:head>
     <h:body>
-        <h:form>
-            <h:graphicImage url="#{resource['images:jakartaee.png']}"  alt="JavaFX Logo"/>
-            <h2>Scannername</h2>
-            <h:inputText id="username"
-                         title="Scannername: "
-                         value="#{scanner.name}"
-                         required="true"
-                         requiredMessage="Name muss angegeben werden!."
-                         maxlength="25" />
-            <p></p>
-            <h:commandButton id="submit" value="Anlegen" action="response" />
-            <h:commandButton id="reset" value="Reset" type="reset" />
-        </h:form>
-        <div class="messagecolor">
-            <h:messages showSummary="true" 
-                        showDetail="false"
-                        errorStyle="color: #d20003" 
-                        infoStyle="color: blue"/>
-        </div>
+    	<f:view>
+	        <h:form>
+	            <h:graphicImage url="#{resource['images:jakartaee.png']}"  alt="Jakarta EE Logo"/>
+	            <h2>Scannererfasssung</h2>
+	            <h:panelGrid columns="2">
+	            	<h:outputText value="Scannername:"/>
+		            <h:inputText id="scannerName"
+		                         title="Scannername"
+		                         value="#{scanner.name}"
+		                         required="true"
+		                         requiredMessage="Scannername muss angegeben werden!."
+		                         maxlength="25" />
+	            	<h:outputText value="In Betrieb seit:"/>
+		            <h:inputText id="inBetriebSeit"
+		                         title="In Betrieb seit"
+		                         value="#{scanner.inBetriebSeit}"
+		                         required="true"
+		                         requiredMessage="Startdatum muss angegeben werden!."
+		                         maxlength="10" />
+	            	<h:outputText value="Scannernummer:"/>
+		            <h:inputText id="scannerNummer"
+		                         title="Scannernummer"
+		                         value="#{scanner.nummer}"
+		                         required="true"
+		                         requiredMessage="Scannernummer muss angegeben werden!."
+		                         maxlength="2" />
+	            </h:panelGrid>
+	            <p/>
+	            <h:commandButton id="speichern" value="Spechern" action="#{scanner.save}" />
+	            <h:commandButton id="anlegen" value="Anlegen" action="response" />
+	            <h:commandButton id="loeschen" value="Löschen" type="reset" />
+	        </h:form>
+	        <div class="messagecolor">
+	            <h:messages showSummary="true" 
+	                        showDetail="false"
+	                        errorStyle="color: #d20003" 
+	                        infoStyle="color: blue"/>
+	        </div>
+		</f:view>
     </h:body>
 </html>
 
