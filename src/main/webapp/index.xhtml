@@ -18,9 +18,14 @@
 		            <h:inputText id="scannerName"
 		                         title="Scannername"
 		                         value="#{scanner.name}"
+		                         valueChangeListener="#{scanner.nameChangedListener}"
 		                         required="true"
 		                         requiredMessage="Scannername muss angegeben werden!."
-		                         maxlength="25" />
+		                         maxlength="25">
+						<f:ajax event="valueChange"
+							    listener="#{scanner.nameChangedAjaxListener}"
+							    render="scannerNameChange"/>
+					</h:inputText>
 	            	<h:outputText value="In Betrieb seit:"/>
 		            <h:inputText id="inBetriebSeit"
 		                         title="In Betrieb seit"
@@ -36,8 +41,10 @@
 		                         requiredMessage="Scannernummer muss angegeben werden!."
 		                         maxlength="2" />
 	            </h:panelGrid>
-	            <p/>
-	            <h:commandButton id="speichern" value="Spechern" action="#{scanner.save}" />
+	            <p><h:outputText value="#{scanner.scannerNameChange}" id="scannerNameChange" /></p>
+	            <h:commandButton id="speichern" value="Speichern" action="#{scanner.saveAction}">
+	            	<f:actionListener type="com.github.mbeier1406.scanner.ScannerActionListener"/>
+	            </h:commandButton>
 	            <h:commandButton id="anlegen" value="Anlegen" action="response" />
 	            <h:commandButton id="loeschen" value="Löschen" type="reset" />
 	        </h:form>
