@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.component.UIOutput;
 import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.faces.event.ValueChangeEvent;
 import jakarta.inject.Named;
@@ -51,7 +52,7 @@ public class Scanner {
 
     /** Wird aufgerufen, wenn das Eingabefeld für den Scannernamen verlassen wird und der Scannername sich geändert hat */
     public void nameChangedAjaxListener(AjaxBehaviorEvent event) {
-    	LOGGER.info("Eingabe für Scannername: {}", event.getComponent().toString());
+    	LOGGER.info("Eingabe für \"{}\": {}", event.getComponent().getId(), ((UIOutput) event.getSource()).getValue());
     	scannerNameChange = "Name wird geändert...";
     }
 
