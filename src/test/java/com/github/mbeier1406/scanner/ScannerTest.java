@@ -22,7 +22,7 @@ public class ScannerTest {
 	@Test
 	public void testeLogger() {
 		try ( CloseableThreadContext.Instance ctx = CloseableThreadContext.put("key",  "value")) {
-			scanner.LOGGER.info("scanner={}", scanner);
+			Scanner.LOGGER.info("scanner={}", scanner);
 		}
 	}
 

@@ -19,7 +19,7 @@ public class ScannerActionListener implements ActionListener {
 	/** Gibt die ID des Elements aus, das den Event erzeugt hat (hier: "speichern") */
 	@Override
 	public void processAction(ActionEvent event) throws AbortProcessingException {
-    	System.out.println("Komponente: \""+event.getComponent().getId()+"\"");
+    	LOGGER.trace("Komponente: \"{}\"", event.getComponent().getId());
 	}
 
 }

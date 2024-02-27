@@ -19,12 +19,12 @@ public class ScannerPhaseListener implements PhaseListener {
 
 	@Override
 	public void beforePhase(PhaseEvent event) {
-		LOGGER.trace("Enter {}...", event.getPhaseId());
+//		LOGGER.trace("Enter {}...", event.getPhaseId());
 	}
 
 	@Override
 	public void afterPhase(PhaseEvent event) {
-		LOGGER.trace("Exit {}...", event.getPhaseId());
+//		LOGGER.trace("Exit {}...", event.getPhaseId());
 	}
 
 	@Override

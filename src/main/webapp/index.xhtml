@@ -3,7 +3,8 @@
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="jakarta.faces.core"
-      xmlns:h="jakarta.faces.html">
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets">
     <h:head>
     	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>Scanner Erfassungsmaske</title>
@@ -40,9 +41,25 @@
 		                         required="true"
 		                         requiredMessage="Scannernummer muss angegeben werden!."
 		                         maxlength="2" />
+					<h:outputText value="Adressen:" />
+					<h:selectManyListbox value="#{scanner.emailadressen}"> <ui:remove>Über die UI definiert</ui:remove>
+						<f:selectItem itemValue="scanner1@example.com" itemLabel="Scanner1"/>
+						<f:selectItem itemValue="scanner2@example.com" itemLabel="Scanner2"/>
+						<f:selectItem itemValue="scanner3@example.com" itemLabel="Scanner3"/>
+						<f:selectItem itemValue="scannerX@example.com" itemLabel="ScannerX"/>
+						<f:selectItem itemValue="scanners@example.com" itemLabel="Scanners"/>
+					</h:selectManyListbox>
+					<h:outputText value="Sprache:" />
+					<h:selectOneListbox value="#{scanner.sprache}">
+						<f:selectItems value="#{scanner.sprachen}"/>
+	            		<f:valueChangeListener type="com.github.mbeier1406.scanner.ScannerSpracheValueChangeListener"/>
+					</h:selectOneListbox>
 	            </h:panelGrid>
 	            <p><h:outputText value="#{scanner.scannerNameChange}" id="scannerNameChange" /></p>
-	            <h:commandButton id="speichern" value="Speichern" action="#{scanner.saveAction}">
+	            <h:commandButton id="speichern"
+								 value="Speichern"
+								 action="#{scanner.saveAction}"
+								 actionListener="#{scanner.checkEMailAdresses}">
 	            	<f:actionListener type="com.github.mbeier1406.scanner.ScannerActionListener"/>
 	            </h:commandButton>
 	            <h:commandButton id="anlegen" value="Anlegen" action="response" />

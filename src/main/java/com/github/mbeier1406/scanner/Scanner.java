@@ -1,12 +1,15 @@
 package com.github.mbeier1406.scanner;
 
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.faces.component.UIOutput;
+import jakarta.faces.event.ActionEvent;
 import jakarta.faces.event.AjaxBehaviorEvent;
 import jakarta.faces.event.ValueChangeEvent;
 import jakarta.inject.Named;
@@ -35,6 +38,18 @@ public class Scanner {
     /** Wer bei Änderungen benchrichtigt werdne muss */
     private String[] emailadressen;
 
+    /** Spracheinstellung des Scanners */
+    private String sprache = "de";
+
+    /** Alle Sprachen der Scannersoftware */
+    @SuppressWarnings("serial")
+	private static Map<String, String> sprachen = new LinkedHashMap<>() {{
+    	put("Deutsch", "de");
+    	put("Englisch", "en");
+    	put("Französisch", "fr");
+    	put("Italienisch", "it");
+    }};
+
     public Scanner() {
     }
 
@@ -56,6 +71,10 @@ public class Scanner {
     	scannerNameChange = "Name wird geändert...";
     }
 
+    /** Wird aufgerufen, wenn der "Speichern" Command-Button gedrückt wird */
+    public void checkEMailAdresses(ActionEvent event) {
+    	LOGGER.info("emailadressen={}", Arrays.toString(this.emailadressen));
+    }
 
     public String getScannerNameChange() {
 		return scannerNameChange;
@@ -95,6 +114,18 @@ public class Scanner {
 
 	public void setEmailadressen(String[] emailadressen) {
 		this.emailadressen = emailadressen;
+	}
+
+	public Map<String, String> getSprachen() {
+		return Scanner.sprachen;
+	}
+
+	public String getSprache() {
+		return sprache;
+	}
+
+	public void setSprache(String sprache) {
+		this.sprache = sprache;
 	}
 
 	@Override
