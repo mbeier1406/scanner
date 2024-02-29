@@ -26,6 +26,9 @@ public class Scanner {
 	/** Text, wenn der Name des Scanners geändert wird */
 	private String scannerNameChange = "";
 
+	/** Text, wenn E-Mail-Adressen des Scanners geändert wird */
+	private String emailNameChange = "";
+
 	/** Name des Scanners */
     private String name;
 
@@ -71,6 +74,11 @@ public class Scanner {
     	scannerNameChange = "Name wird geändert...";
     }
 
+    /** Wird aufgerufen, wenn die E-Mail-Adressen des Scanners eingestellt werden.*/
+    public void emailadressenChangedAjaxListener(AjaxBehaviorEvent event) {
+    	emailNameChange =  this.emailadressen.length > 2 ? "Bitte nicht mehr als zwei Adressen" : "";
+    }
+
     /** Wird aufgerufen, wenn der "Speichern" Command-Button gedrückt wird */
     public void checkEMailAdresses(ActionEvent event) {
     	LOGGER.info("emailadressen={}", Arrays.toString(this.emailadressen));
@@ -82,6 +90,14 @@ public class Scanner {
 
 	public void setScannerNameChange(String scannerNameChange) {
 		this.scannerNameChange = scannerNameChange;
+	}
+
+	public String getEmailNameChange() {
+		return emailNameChange;
+	}
+
+	public void setEmailNameChange(String scannerEMailChange) {
+		this.emailNameChange = scannerEMailChange;
 	}
 
 	public String getName() {
@@ -130,8 +146,9 @@ public class Scanner {
 
 	@Override
 	public String toString() {
-		return "Scanner [scannerNameChange=" + scannerNameChange + ", name=" + name + ", inBetriebSeit=" + inBetriebSeit
-				+ ", nummer=" + nummer + ", emailadressen=" + Arrays.toString(emailadressen) + "]";
+		return "Scanner [scannerNameChange=" + scannerNameChange + ", scannerEMailChange=" + emailNameChange
+				+ ", name=" + name + ", inBetriebSeit=" + inBetriebSeit + ", nummer=" + nummer + ", emailadressen="
+				+ Arrays.toString(emailadressen) + ", sprache=" + sprache + "]";
 	}
 
 }

@@ -48,6 +48,9 @@
 						<f:selectItem itemValue="scanner3@example.com" itemLabel="Scanner3"/>
 						<f:selectItem itemValue="scannerX@example.com" itemLabel="ScannerX"/>
 						<f:selectItem itemValue="scanners@example.com" itemLabel="Scanners"/>
+						<f:ajax event="valueChange"
+							    listener="#{scanner.emailadressenChangedAjaxListener}"
+							    render="scannerEMailChange"/>
 					</h:selectManyListbox>
 					<h:outputText value="Sprache:" />
 					<h:selectOneListbox value="#{scanner.sprache}">
@@ -56,6 +59,7 @@
 					</h:selectOneListbox>
 	            </h:panelGrid>
 	            <p><h:outputText value="#{scanner.scannerNameChange}" id="scannerNameChange" /></p>
+	            <p><h:outputText value="#{scanner.emailNameChange}" id="scannerEMailChange" /></p>
 	            <h:commandButton id="speichern"
 								 value="Speichern"
 								 action="#{scanner.saveAction}"
